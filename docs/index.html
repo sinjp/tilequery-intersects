@@ -53,8 +53,8 @@
 
     #sidebar {
       position: absolute;
-      top: 0px;
-      left: 0px;
+      top: 0;
+      left: 0;
       width: 33%;
       padding: 10px;
     }
@@ -102,7 +102,7 @@
         features: []
       },
       'generateId': true
-    })
+    });
 
     map.addLayer({
       'id': 'test-background',
@@ -141,11 +141,11 @@
     var geojson = {
       type: "FeatureCollection",
       features: []
-    }
-    var sidebar = document.querySelector("#sidebar")
+    };
+    var sidebar = document.querySelector("#sidebar");
 
 
-    const ids = []
+    const ids = [];
 
     // map.on("click", (e) => console.log(map.queryRenderedFeatures(e.point)))
 
@@ -161,7 +161,7 @@
         buffer: true
       })
       .then(result => {
-        ids.length = 0
+        ids.length = 0;
         map.getSource('query').setData(result);
         // result.features.forEach(f => {
         //   // ids.push(f.id)
@@ -170,7 +170,7 @@
         sidebar.innerHTML = "";
         for (let i = 0; i < 21; i++) {
           if (result.features[i] && result.features[i].id) sidebar.innerHTML += result.features[i].id + ': ' + result.features[i].properties.title + '<br>'
-        };
+        }
         // console.log(result)
       })
 
